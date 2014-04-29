@@ -22,6 +22,11 @@ $di->setShared('router', function(){
 });
 $di->setShared('url', 'Flame\Mvc\Url');
 $di->setShared('dispatcher', 'Flame\Mvc\Dispatcher');
+$di->setShared('view', function(){
+	$view = new Flame\Mvc\View();
+	$view->setViewDir( __DIR__ . '/../protected/view/' );
+	return $view;
+});
 
 $application = new Flame\Mvc\Application($di);
 
